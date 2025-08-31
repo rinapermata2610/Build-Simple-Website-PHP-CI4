@@ -71,3 +71,8 @@ CREATE TABLE mahasiswa (
   ```bash
   php spark serve --port=8081
   ```
+
+## 📷 Preview / Output
+
+### Halaman CRUD Mahasiswa
+![CRUD Mahasiswa](assets/CRUD-Mahasiswa.png)
