@@ -75,4 +75,4 @@ CREATE TABLE mahasiswa (
 ## 📷 Preview / Output
 
 ### Halaman CRUD Mahasiswa
-![CRUD Mahasiswa](assets/CRUD-Mahasiswa.png)
+![CRUD Mahasiswa](assets/screenshoot/CRUD-Mahasiswa.png)
