@@ -10,20 +10,6 @@ Project ini merupakan aplikasi sederhana manajemen data mahasiswa menggunakan Co
 - Hapus mahasiswa
 - Lihat detail mahasiswa
 
-## Tampilan
-
-### 1. Halaman Home
-![Tampilan Home](assets/screenshots/home.png)
-
-### 2. Form Tambah Mahasiswa
-![Form Tambah Mahasiswa](assets/screenshots/form-tambah.png)
-
-### 3. Aksi Detail, Edit, dan Hapus
-![Aksi Detail](assets/screenshots/detail.png)
-![Aksi Edit](assets/screenshots/edit.png)
-![Aksi Hapus](assets/screenshots/hapus.png)
----
-
 ## Cara Menjalankan
 1. Clone repository ini
 2. Import database `mahasiswa.sql`

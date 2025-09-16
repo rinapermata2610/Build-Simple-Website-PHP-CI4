@@ -18,6 +18,6 @@ $routes->get('mahasiswa/delete/(:num)', 'Mahasiswa::delete/$1');
 $routes->get('mahasiswa/(:num)', 'Mahasiswa::show/$1');
 
 // Auth
-$routes->get('login', 'Auth::login');
-$routes->post('login', 'Auth::loginAuth');
-$routes->get('logout', 'Auth::logout');
+$routes->get('auth', 'Auth::index');         
+$routes->post('auth/login', 'Auth::login');  
+$routes->get('auth/logout', 'Auth::logout'); 
