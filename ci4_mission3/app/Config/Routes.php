@@ -58,9 +58,12 @@ $routes->group('student', ['filter' => 'auth:student'], function ($routes) {
     // Lihat & Enroll Courses
     $routes->get('courses', 'Student\Courses::index');
     $routes->post('courses/enroll/(:num)', 'Student\Courses::enroll/$1');
-});
+    $routes->post('courses/enroll-bulk', 'Student\Courses::enrollBulk');
 
-$routes->post('student/courses/enroll-bulk', 'Student\Courses::enrollBulk', ['filter' => 'auth:student']);
+    // ✅ HISTORY Courses (MUST be inside group)
+    $routes->get('courses/history', 'Student\Courses::history');
+    $routes->get('courses/history-pdf', 'Student\Courses::historyPdf');
+});
 
 // =======================
 // PROFILE ROUTES
@@ -68,29 +71,3 @@ $routes->post('student/courses/enroll-bulk', 'Student\Courses::enrollBulk', ['fi
 $routes->get('profile/password', 'Profile::passwordForm', ['filter' => 'auth']);
 $routes->post('profile/password', 'Profile::updatePassword', ['filter' => 'auth']);
 
-// =======================
-// DEV-ONLY ROUTE (HAPUS SAAT PRODUCTION)
-// =======================
-$routes->get('dev/reset-password', function() {
-    $request = service('request');
-    $email = $request->getGet('email');
-
-    if (!$email) {
-        echo "<h3>Email harus diberikan. Contoh:</h3>";
-        echo "<code>/dev/reset-password?email=rina@polban.com</code>";
-        return;
-    }
-
-    $userModel = new \App\Models\UserModel();
-    $user = $userModel->where('email', $email)->first();
-
-    if ($user) {
-        $userModel->update($user['id'], [
-            'password' => password_hash('123456', PASSWORD_DEFAULT)
-        ]);
-        echo "<h3>Password untuk <b>{$email}</b> berhasil direset ✅</h3>";
-        echo "<p>Gunakan password <b>123456</b> untuk login.</p>";
-    } else {
-        echo "<h3>User dengan email <b>{$email}</b> tidak ditemukan ❌</h3>";
-    }
-});

@@ -59,6 +59,11 @@
               </a>
             </li>
           <?php endif; ?>
+          <li class="nav-item">
+          <a class="nav-link" href="/student/courses/history">
+            <i class="bi bi-clock-history me-1"></i> Riwayat Course
+          </a>
+        </li>
 
           <!-- Logout -->
           <li class="nav-item ms-lg-3">

@@ -34,13 +34,26 @@
     </div>
   </div>
 
-  <!-- Tombol Aksi -->
-  <div class="text-center mt-5">
+    <!-- Tombol Aksi -->
+  <div class="text-center mt-5 d-flex justify-content-center gap-3">
+
+    <!-- Lihat Daftar Courses (Biru) -->
     <a href="/student/courses" class="btn btn-lg btn-primary px-4 shadow-sm">
       <i class="bi bi-arrow-right-circle me-2"></i> Lihat Daftar Courses
     </a>
-  </div>
 
-</div>
+    <!-- Riwayat Course (Hijau) -->
+    <a href="/student/courses/history" class="btn btn-lg btn-success px-4 shadow-sm">
+      <i class="bi bi-clock-history me-2"></i> Riwayat Course
+    </a>
+
+    <!-- Download PDF (Merah) -->
+    <a href="/student/courses/history-pdf" target="_blank" class="btn btn-lg btn-danger px-4 shadow-sm">
+      <i class="bi bi-file-earmark-pdf me-2"></i> Download PDF
+    </a>
+
+    
+
+  </div>
 
 <?= $this->endSection() ?>

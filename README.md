@@ -1,24 +1,63 @@
-# Project Mahasiswa (CodeIgniter 4)
+# 🎓 Sistem Akademik Sederhana
 
-Project ini merupakan aplikasi sederhana manajemen data mahasiswa menggunakan CodeIgniter 4.
+Sistem akademik berbasis **CodeIgniter 4** yang mendukung manajemen data mahasiswa dan mata kuliah secara interaktif. Dibangun untuk memenuhi misi pembelajaran *DOM Manipulation* dan *Event Handling* menggunakan **JavaScript**.
 
-## Fitur
-- Login & Logout
-- Tampilkan data mahasiswa
-- Tambah mahasiswa
-- Edit mahasiswa
-- Hapus mahasiswa
-- Lihat detail mahasiswa
+## Fitur Utama
 
-## Cara Menjalankan
-1. Clone repository ini
-2. Import database `mahasiswa.sql`
-3. Jalankan dengan `php spark serve`
-4. Akses di browser `http://localhost:8080`
+### Student
+
+* Daftar mata kuliah (course list), 
+* Riwayat Course
+* Download PDF (rekap sks)
+
+### Admin
+
+* CRUD Course (Create, Edit, Delete)
+* CRUD Mahasiswa / User (Create, Edit, Delete)
 
 ---
 
-## Dibuat oleh
-Rina Permata Dewi
-241511061
-2B/D3 Teknik Informatika
+## Teknologi yang Digunakan
+
+* **CodeIgniter 4** (PHP Framework)
+* **PHP 8+**
+* **MySQL / MariaDB** (Database)
+* **Bootstrap 5 + Bootstrap Icons**
+* **JavaScript DOM & Fetch API** (AJAX)
+* **FontAwesome / Google Fonts** (untuk ikon & tipografi)
+
+---
+
+## Tampilan Sistem
+| Halaman | Preview |
+|--------|---------|
+| **Halaman Login** | ![Login](screenshots/halaman-login.png) |
+| **Halaman Register** | ![Register](screenshots/halaman-register.png) |
+| **Halaman Admin** | ![Courses](screenshots/halaman-admin.png) |
+| **Halaman Mahasiswa** | ![Total SKS](screenshots/halaman-mahasiswa.png) |
+
+---
+
+## Instalasi
+
+1. Clone repository:
+```bash
+git clone https://github.com/username/sistem-akademik.git
+```
+2. Masuk ke folder project & install dependencies:
+```bash
+composer install
+```
+3. Duplikat file `.env.example` → `.env`, lalu sesuaikan koneksi database.
+4. Migrasi database:
+```bash
+php spark migrate
+```
+5. Jalankan server lokal:
+```bash
+php spark serve
+```
+6. Akses melalui browser:
+```
+http://localhost:8080
+```

@@ -3,6 +3,7 @@
 use App\Controllers\BaseController;
 use App\Models\CourseModel;
 use App\Models\EnrollmentModel;
+use Dompdf\Dompdf;
 
 class Courses extends BaseController
 {
@@ -117,4 +118,63 @@ class Courses extends BaseController
 
         return redirect()->back()->with('error', $message);
     }
+
+    public function history()
+{
+    $userId = session()->get('user_id');
+
+    $enrolled = $this->enrollModel
+        ->where('user_id', $userId)
+        ->findAll();
+
+    $courses = [];
+    $totalSks = 0;
+
+    foreach ($enrolled as $row) {
+        $course = $this->courseModel->find($row['course_id']);
+        if ($course) {
+            $courses[] = $course;
+            $totalSks += (int) ($course['credits'] ?? 0);
+        }
+    }
+
+    return view('student/courses/history', [
+        'title'    => 'Riwayat Course',
+        'courses'  => $courses,
+        'totalSks' => $totalSks
+    ]);
+}
+
+public function historyPdf()
+{
+    $userId = session()->get('user_id');
+
+    $enrolled = $this->enrollModel
+        ->where('user_id', $userId)
+        ->findAll();
+
+    $courses = [];
+    $totalSks = 0;
+
+    foreach ($enrolled as $row) {
+        $course = $this->courseModel->find($row['course_id']);
+        if ($course) {
+            $courses[] = $course;
+            $totalSks += (int) ($course['credits'] ?? 0);
+        }
+    }
+
+    // Gunakan Dompdf
+    $dompdf = new \Dompdf\Dompdf();
+    $html = view('student/courses/history_pdf', [
+        'courses'  => $courses,
+        'totalSks' => $totalSks
+    ]);
+
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+    $dompdf->stream('riwayat_course.pdf', ["Attachment" => true]);
+}
+
 }
