@@ -38,10 +38,17 @@
               <textarea name="description" class="form-control" rows="3" placeholder="Tulis deskripsi course..." required><?= old('description') ?></textarea>
             </div>
 
-            <!-- SKS -->
+            <!-- SKS / Credits -->
             <div class="mb-3">
-              <label class="form-label">SKS</label>
-              <input type="number" name="sks" class="form-control" min="1" max="6" value="<?= old('sks') ?>" required>
+              <label for="credits" class="form-label">SKS</label>
+              <input type="number" 
+                    name="credits" 
+                    id="credits" 
+                    class="form-control" 
+                    min="1" 
+                    max="6" 
+                    value="<?= old('credits') ?>" 
+                    required>
             </div>
 
             <!-- Tombol Aksi -->
